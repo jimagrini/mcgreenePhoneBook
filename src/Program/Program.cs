@@ -7,6 +7,10 @@ namespace Program
     {
         static void Main(string[] args)
         {
+            Contact friend = new Contact("George");//ocp y creator?
+            Contact owner = new Contact("Juan");
+            owner.phoneBook.Add(friend);
+            
             // Crear el contacto dueño
 
             // Crear la lista de contactos

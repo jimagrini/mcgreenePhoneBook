@@ -6,19 +6,41 @@ namespace Library
     {
         private List<Contact> persons;
 
+        private List<Message> chatbox ;
+
+        public List<Message> MessageBox
+        {
+            get
+            {
+                return chatbox;
+            }
+        }
+
+        public void Add(Contact contact)
+        {
+            this.persons.Add(contact);
+        }
+
+        public void Remove(Contact contact)
+        {
+            this.persons.Remove(contact);
+        }
         public Phonebook(Contact owner)
         {
             this.Owner = owner;
             this.persons = new List<Contact>();
+            this.chatbox= new List<Message>();
         }
 
-        public void SendMessage(string text, Contact contact, IMessageChannel channel)
+        public void SendMessage(string text, Contact receiver, IMessageChannel channel)
         {
+            Message msg= channel.GetMessage(Owner, receiver);
+            channel.Send(msg,receiver);
             
         }
 
         public Contact Owner { get; }
-
+ 
         public List<Contact> Search(string[] names)
         {
             List<Contact> result = new List<Contact>();
