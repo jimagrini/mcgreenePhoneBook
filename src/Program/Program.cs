@@ -9,8 +9,9 @@ namespace Program
         {
             Contact friend = new Contact("George");//ocp y creator?
             Contact owner = new Contact("Juan");
-            owner.phoneBook.Add(friend);
-            
+            Phonebook phBook= new Phonebook(owner);
+            phBook.Add(friend);
+ 
             // Crear el contacto dueño
 
             // Crear la lista de contactos

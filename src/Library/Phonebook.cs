@@ -8,14 +8,6 @@ namespace Library
 
         private List<Message> chatbox ;
 
-        public List<Message> MessageBox
-        {
-            get
-            {
-                return chatbox;
-            }
-        }
-
         public void Add(Contact contact)
         {
             this.persons.Add(contact);
@@ -32,11 +24,12 @@ namespace Library
             this.chatbox= new List<Message>();
         }
 
-        public void SendMessage(string text, Contact receiver, IMessageChannel channel)
+        public void SendWpp(string text, Contact receiver, IMessageChannel channel)
         {
             Message msg= channel.GetMessage(Owner, receiver);
             channel.Send(msg,receiver);
-            
+            chatbox.Add(msg);
+
         }
 
         public Contact Owner { get; }

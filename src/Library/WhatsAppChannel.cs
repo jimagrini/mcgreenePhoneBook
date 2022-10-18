@@ -4,7 +4,7 @@ namespace Library
     {
         public void Send(Message message, Contact receiver)
         {
-            receiver.phoneBook.MessageBox.Add(message);
+            
         }
         public Message GetMessage(Contact sender, Contact receiver)
         {
